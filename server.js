@@ -1,7 +1,8 @@
 // Importation des modules
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const express = require("express"); 
+const mongoose = require("mongoose"); 
+const dotenv = require("dotenv"); 
+const cors = require("cors");
 
 // Importation du modèle User
 const User = require("./models/User");
@@ -11,8 +12,10 @@ dotenv.config({
   path: "./config/.env"
 });
 
-// Création de l'application Express
-const app = express();
+const app = express(); 
+
+// Autoriser React à communiquer avec Express
+app.use(cors());
 
 // Permet à Express de lire les données JSON
 app.use(express.json());
